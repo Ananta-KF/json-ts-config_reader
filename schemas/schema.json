@@ -1,0 +1,62 @@
+{
+    "title": "com.kf.ic2.assessment.event.assess1",
+    "type": "object",
+    "description": "Assessment event payload",
+    "additionalProperties": false,
+    "required": [
+        "candidateId",
+        "event",
+        "overallStatus",
+        "assessmentProvider"
+      ],
+    "properties": {
+        "assessmentProvider": {
+          "$ref": "#/definitions/AssessmentProviders"
+        },
+        "postbackId": {
+          "type": [ "string", "null" ],
+          "nullable": true
+        },
+        "overallStatus": {
+          "pattern": "COMPLETED|IN_PROGRESS|NOT_STARTED",
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        },
+        "assessmentId": {
+          "type": [ "string", "null" ],
+          "nullable": true
+        },
+        "assessmentStatus": {
+          "type": [ "string", "null" ],
+          "nullable": true
+        },
+        "reportType": {
+          "type": [ "string", "null" ],
+          "nullable": true
+        },
+        "Assessment": {
+          "type": [ "string", "null" ],
+          "nullable": true
+        },
+        "deliveryCount": {
+          "minimum": 1,
+          "type": "integer",
+          "format": "int32"
+        }
+    },
+    "definitions": {
+      "AssessmentProviders": {
+        "enum": [
+          "KFAssess",
+          "ConfirmIt",
+          "Hiremee",
+          "ConfirmItCompetency",
+          "Assess1"
+        ],
+        "type": "string"
+      }
+    },
+    "x-internal": false
+  }
